@@ -1,0 +1,7 @@
+flask
+flask_restx
+python-dotenv
+kink
+beautifulsoup4
+pandas
+numpy
