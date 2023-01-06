@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>
+            Movimientos Tarjeta Cr�dito
+        </title>
+    </head>
+    <body>
+        <table border="0">
+            <tr>
+                <td>
+                    <br>
+                    <table border="2">
+                        <tr>
+                            <td colspan="2" align="left">No. de Cuenta: &nbsp;<b>5555444422223333</b></td>
+                            <tr>
+                                <td colspan="2" align="left">Producto: &nbsp;<b>UNI SANTANDER K</b></td>
+                                <tr>
+                                    <td colspan="4" align="left">
+                                        <b>TASA DE INTER�S ANUALIZADA QUE SE COBRA SOBRE EL SALDO PROMEDIO INSOLUTO DEL PERIODO ANTERIOR:</b> &nbsp;71.11 &nbsp; %</td>
+                                        <tr>
+                                            <td colspan="2" align="left">Detalle del 01-01-2000 al 31-01-2000</td>
+                                            <td colspan="2" align="right">Total de movimientos:<b>1</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <b>FECHA</b>
+                                            </td>
+                                            <td align="center">
+                                                <b>CONSECUTIVO</b>
+                                            </td>
+                                            <td align="center">
+                                                <b>CONCEPTO</b>
+                                            </td>
+                                            <td align="center">
+                                                <b>IMPORTE</b>
+                                            </td>
+                                            <tr>
+                                                <td align="center">01/Ene/2022</td>
+                                                <td align="center">0000001</td>
+                                                <td align="left">PAYPAL RAPI</td>
+                                                <td align="center">100.00</td>
+                                            </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br>
+    </body>
+</html>

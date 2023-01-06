@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>
+            Movimientos Cuentas Chequeras
+        </title>
+    </head>
+    <body>
+        <table border="0">
+            <tr>
+                <td>
+                    <br>
+                    <table border="2">
+                        <tr>
+                            <td colspan="5" align="left">Detalle del 01-01-2000 al 31-01-2001 de la cuenta 022211155555</td>
+                            <td colspan="3" align="right">N&uacute;mero de registros:<b>1</b></td>
+                        </tr>
+                        <tr>
+                            <td colspan="8">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <b>FECHA</b>
+                            </td>
+                            <td align="center">
+                                <b>HORA</b>
+                            </td>
+                            <td align="center">
+                                <b>SUCURSAL</b>
+                            </td>
+                            <td align="center">
+                                <b>CONCEPTO</b>
+                            </td>
+                            <td align="center">
+                                <b>RETIRO</b>
+                            </td>
+                            <td align="center">
+                                <b>DEPOSITO</b>
+                            </td>
+                            <td align="center">
+                                <b>SALDO</b>
+                            </td>
+                            <td align="center">
+                                <b>REFERENCIA</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">01/Ene/2000</td>
+                            <td align="center">12:00:00</td>
+                            <td align="left">1111</td>
+                            <td align="center">internet                      </td>
+                            <td align="center">200.00</td>
+                            <td align="center"></td>
+                            <td align="center">99.99</td>
+                            <td align="center">003332299      </td>
+                        </tr>
+            
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br>
+    </body>
+</html>

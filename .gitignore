@@ -5,10 +5,5 @@ __pycache__/
 # Environment variables
 *.env
 
-# Excel files
-*.xls
-*.xlsx
-*.csv
-
 # MacOs Files
 *.DS_Store
