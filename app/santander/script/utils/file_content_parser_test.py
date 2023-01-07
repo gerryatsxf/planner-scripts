@@ -3,7 +3,7 @@ from app.santander.script.utils.file_content_parser import FileContentParser
 from bs4 import BeautifulSoup
 from snapshottest import TestCase
 from pandas import DataFrame
-
+import json
 TEST_DEBIT_FILE_PATH = '/Users/gmijares/planner/testing-lab/script-api/app/santander/script/files/sample_debit.xls'
 TEST_DEBIT_FILE_TYPE = 'debit'
 TEST_CREDIT_FILE_PATH = '/Users/gmijares/planner/testing-lab/script-api/app/santander/script/files/sample_credit.xls'
@@ -15,11 +15,11 @@ class UserModelCase(TestCase):
         self.file_content_parser_debit = FileContentParser(TEST_DEBIT_FILE_PATH,TEST_DEBIT_FILE_TYPE)
         self.file_content_parser_credit = FileContentParser(TEST_CREDIT_FILE_PATH,TEST_CREDIT_FILE_TYPE)
 
-    def test_get_file_content_returns_string(self):
+    def test_get_file_content_returns_right_snapshot(self):
         fileContentDebit = self.file_content_parser_debit.getFileContent()
         fileContentCredit = self.file_content_parser_credit.getFileContent()
-        self.assertTrue(type(fileContentDebit) is str )
-        self.assertTrue(type(fileContentCredit) is str )
+        self.assertMatchSnapshot(fileContentDebit, 'FileContentParser.getFileContent()_debit')
+        self.assertMatchSnapshot(fileContentCredit, 'FileContentParser.getFileContent()_credit')
 
     def test_get_soup_returns_soup(self):
         soupDebit = self.file_content_parser_debit.getSoup()

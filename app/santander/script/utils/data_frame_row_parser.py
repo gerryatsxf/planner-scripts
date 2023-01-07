@@ -10,6 +10,9 @@ class DataFrameRowParser(object):
         self.df = rawDf
 
     def getDataFrame(self):
+        return self.df
+
+    def parseDataFrame(self):
         self.transformDescription()
         self.transformFlows()
         self.dropColumns()

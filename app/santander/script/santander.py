@@ -24,11 +24,11 @@ def main(params):
     dateParser = DataFrameDateParser(params['fileType'])
 
     # GET OUR FIRST DATAFRAME WITH ALL ROWS STRING-VALUED
-    df = fileParser.getRawDataFrame()
+    df = fileParser.parseRawDataFrame()
 
     # PROCESS DATAFRAME FURTHER AND GET SOME VALUES TYPE-PARSED
     rowParser.setDataFrame(df)
-    df = rowParser.getDataFrame()
+    df = rowParser.parseDataFrame()
 
     # SET RIGHT DATES (AND TIMES IF POSSIBLE)
     dateParser.setDataFrame(df)
