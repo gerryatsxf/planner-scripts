@@ -1,4 +1,5 @@
 from flask_restx import Resource, Namespace
+from flask import request
 from app.hello_world.dto.hello_world_request_dto import helloWorldRequestDto
 from app.hello_world.dto.hello_world_response_dto import helloWorldResponseDto
 from kink import inject
@@ -23,9 +24,11 @@ class HelloWorldRun(Resource):
     @ns.doc('run')
     @ns.expect(helloWorldRequestDto)
     @ns.marshal_with(helloWorldResponseDto, code=201)
+    @ns.param('heyyy')
     def post(self):
         '''Run hello_world script'''
         params = ns.payload
+        a = request.args.get('heyyy')
         response = {'data':self.hello_world_service.run_script(params)}
         return response
 

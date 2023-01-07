@@ -22,7 +22,4 @@ class SantanderService(object):
         if params['fileType'] != 'debit' and params['fileType'] != 'credit':
             raise ValueError("TYPE OF FILE NOT SUPPORTED BY SANTANDER SCRIPT")
 
-        return {'result':self.santander_script(params)}
-
-    # def get_script_index(self):
-    #     return {'scripts':['hello_world.py']}
+        return {'records':self.santander_script(params)}

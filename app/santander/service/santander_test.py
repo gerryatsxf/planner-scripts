@@ -19,7 +19,7 @@ class UserModelCase(TestCase):
         self.santander_script_mock.return_value = {}
         result = self.santander_service.run_script(params)
         self.santander_script_mock.assert_called_with(params)
-        self.assertTrue('result' in result.keys())
+        self.assertTrue('records' in result.keys())
 
     def test_santander_script_called_with_bad_params(self):
         params = ''

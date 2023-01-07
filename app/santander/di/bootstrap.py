@@ -1,6 +1,6 @@
 from kink import di
-from app.hello_world.script.hello_world import main
-from app.hello_world.service.hello_world import SantanderService
+from app.santander.script.santander import main
+from app.santander.service.santander import SantanderService
 import os
 
 def bootstrap_di() -> None:

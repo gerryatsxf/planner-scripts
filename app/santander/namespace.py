@@ -1,31 +1,26 @@
-from flask_restx import Resource, Namespace
-from app.hello_world.dto.hello_world_request_dto import helloWorldRequestDto
-from app.hello_world.dto.hello_world_response_dto import helloWorldResponseDto
+from flask_restx import Resource, Namespace, reqparse
+from flask import request
+from app.santander.dto.santander_request_dto import santanderRequestDto
+from app.santander.dto.santander_response_dto import santanderResponseDto
 from kink import inject
 
-ns = Namespace('hello-world', __name__)
+ns = Namespace('santander', __name__)
 
 # ROUTES
 @ns.route('')
 @inject # for dependency injection magic!
-class HelloWorldRun(Resource):
-    '''Lets you get a list of hello_world script related scripts, and POST to the hello_world script to run it'''
-    def __init__(self, api=None, hello_world_service=None):
+class SantanderRun(Resource):
+    '''Lets you POST to the santander script to run it'''
+    def __init__(self, api=None, santander_service=None):
         super().__init__(api)
-        self.hello_world_service = hello_world_service # this dependency should always be injected from di.bootstrap
-    
-    @ns.doc('index')
-    def get(self):
-        '''Index available script names associated to hello_world script'''
-        response = {'data':self.hello_world_service.get_script_index()}
-        return response
+        self.santander_service = santander_service # this dependency should always be injected from di.bootstrap
 
     @ns.doc('run')
-    @ns.expect(helloWorldRequestDto)
-    @ns.marshal_with(helloWorldResponseDto, code=201)
+    @ns.expect(santanderRequestDto)
+    @ns.marshal_with(santanderResponseDto, code=201)
     def post(self):
-        '''Run hello_world script'''
+        '''Run santander script'''
         params = ns.payload
-        response = {'data':self.hello_world_service.run_script(params)}
+        response = {'data':self.santander_service.run_script(params)}
         return response
 
