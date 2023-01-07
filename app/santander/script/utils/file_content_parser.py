@@ -11,7 +11,7 @@ class FileContentParser(object):
         self.clean = self.cleanHeaders() 
         self.df = self.parseRawDataFrame()
 
-    def getDf(self):
+    def getDataFrame(self):
         return self.df
 
     def parseRawDataFrame(self):

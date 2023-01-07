@@ -32,7 +32,7 @@ def main(params):
 
     # SET RIGHT DATES (AND TIMES IF POSSIBLE)
     dateParser.setDataFrame(df)
-    df = dateParser.getDataFrame()
+    df = dateParser.parseDataFrame()
 
     # FINALLY, GET THE ROWS OF INTEREST BY TIME INTERVAL
     df = filterByTimeInterval(df,params['sinceDate'],params['untilDate'])

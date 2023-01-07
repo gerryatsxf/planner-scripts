@@ -1,21 +1,14 @@
 from app.santander.script.utils.data_frame_row_parser import DataFrameRowParser
+from app.santander.script.utils import parseJsonFile
 from snapshottest import TestCase
-import json
 import pandas as pd
 
 TEST_JSON_FILE_PATH_DEBIT = 'app/santander/script/files/example_debit.json'
 TEST_JSON_FILE_PATH_CREDIT = 'app/santander/script/files/example_credit.json'
-
-def parseJsonFile(filePath):
-    f = open(filePath, 'r')
-    fileContent = f.read().replace('\n', '').replace('\r', '')
-    f.close()
-    return json.loads(fileContent)
-
 TEST_DEBIT_FILE_TYPE = 'debit'
 TEST_CREDIT_FILE_TYPE = 'credit'
 
-class UserModelCase(TestCase):
+class DataFrameRowParserTest(TestCase):
     
     def setUp(self):
         self.data_frame_row_parser_debit = DataFrameRowParser(TEST_DEBIT_FILE_TYPE)

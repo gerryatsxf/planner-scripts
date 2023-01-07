@@ -3,13 +3,13 @@ from app.santander.script.utils.file_content_parser import FileContentParser
 from bs4 import BeautifulSoup
 from snapshottest import TestCase
 from pandas import DataFrame
-import json
-TEST_DEBIT_FILE_PATH = '/Users/gmijares/planner/testing-lab/script-api/app/santander/script/files/sample_debit.xls'
+
+TEST_DEBIT_FILE_PATH = 'app/santander/script/files/sample_debit.xls'
 TEST_DEBIT_FILE_TYPE = 'debit'
-TEST_CREDIT_FILE_PATH = '/Users/gmijares/planner/testing-lab/script-api/app/santander/script/files/sample_credit.xls'
+TEST_CREDIT_FILE_PATH = 'app/santander/script/files/sample_credit.xls'
 TEST_CREDIT_FILE_TYPE = 'credit'
 
-class UserModelCase(TestCase):
+class FileContentParserTest(TestCase):
     
     def setUp(self):
         self.file_content_parser_debit = FileContentParser(TEST_DEBIT_FILE_PATH,TEST_DEBIT_FILE_TYPE)
@@ -48,7 +48,7 @@ class UserModelCase(TestCase):
         self.assertTrue(len(dfCredit.index) > 0)
 
     def test_that_df_has_correct_columns(self):
-        snapshotColumnsDebit = self.file_content_parser_debit.getDf().columns
-        snapshotColumnsCredit = self.file_content_parser_credit.getDf().columns
+        snapshotColumnsDebit = self.file_content_parser_debit.getDataFrame().columns
+        snapshotColumnsCredit = self.file_content_parser_credit.getDataFrame().columns
         self.assertMatchSnapshot(snapshotColumnsDebit, 'FileContentParser.getDf().columns_debit')
         self.assertMatchSnapshot(snapshotColumnsCredit, 'FileContentParser.getDf().columns_credit')
