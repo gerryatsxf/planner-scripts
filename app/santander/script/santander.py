@@ -9,16 +9,6 @@ def filterByDateInterval(df,sinceDate,untilDate,column='dateExecuted'):
 
 def main(params):
 
-    # these checks are to be setup in santander service
-    # if 'fileType' not in params.keys():
-    #     raise Exception("fileType NOT SETUP IN PARAMS")
-
-    # if 'filePath' not in params.keys():
-    #     raise Exception("filePath NOT SETUP IN PARAMS")
-
-    # if params['fileType'] != 'debit' and params['fileType'] != 'credit':
-    #     raise Exception("TYPE OF FILE NOT SUPPORTED BY SANTANDER SCRIPT")
-
     fileParser = FileContentParser(params['filePath'],params['fileType'])
     rowParser = DataFrameRowParser(params['fileType'])
     dateParser = DataFrameDateParser(params['fileType'])

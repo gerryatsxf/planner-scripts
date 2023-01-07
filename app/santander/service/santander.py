@@ -8,18 +8,21 @@ class SantanderService(object):
     def __init__(self, santander_script=None):
         self.santander_script = santander_script # this dependency should always be injected from di.bootstrap
 
-    # def run_script(self, params):
+    def run_script(self, params):
 
-    #     if type(params) is not dict:
-    #         raise TypeError('PARAMETERS SUBMITTED ARE NOT OF VALID TYPE')
+        if type(params) is not dict:
+            raise TypeError("params NOT OF TYPE DICTIONARY")
 
-    #     if 'message' not in params.keys() :
-    #         raise AttributeError('PARAMETERS SUBMITTED MUST HAVE message PROPERTY')
+        if 'fileType' not in params.keys():
+            raise AttributeError("fileType NOT SETUP IN PARAMS")
 
-    #     if type(params['message']) is not str:
-    #         raise TypeError('MESSAGE SUBMITTED IS NOT STRING')
+        if 'filePath' not in params.keys():
+            raise AttributeError("filePath NOT SETUP IN PARAMS")
 
-    #     return self.hello_world_script(params)
+        if params['fileType'] != 'debit' and params['fileType'] != 'credit':
+            raise ValueError("TYPE OF FILE NOT SUPPORTED BY SANTANDER SCRIPT")
+
+        return {'result':self.santander_script(params)}
 
     # def get_script_index(self):
     #     return {'scripts':['hello_world.py']}
