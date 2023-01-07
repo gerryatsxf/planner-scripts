@@ -4,8 +4,8 @@ from app.santander.script.utils.file_content_parser import FileContentParser
 from app.santander.script.utils.data_frame_row_parser import DataFrameRowParser
 from app.santander.script.utils.data_frame_date_parser import DataFrameDateParser
 
-def filterByTimeInterval(df,sinceDate,untilDate):
-  return df.loc[(df.dateExecuted >= sinceDate) & (df.dateExecuted <= untilDate)]
+def filterByDateInterval(df,sinceDate,untilDate,column='dateExecuted'):
+  return df.loc[(df[column] >= sinceDate) & (df[column] <= untilDate)]
 
 def main(params):
 
@@ -35,6 +35,7 @@ def main(params):
     df = dateParser.parseDataFrame()
 
     # FINALLY, GET THE ROWS OF INTEREST BY TIME INTERVAL
-    df = filterByTimeInterval(df,params['sinceDate'],params['untilDate'])
+    if 'sinceDate' in params.keys() and  'untilDate' in params.keys():
+      df = filterByDateInterval(df,params['sinceDate'],params['untilDate'])
 
     return df.to_dict('records')

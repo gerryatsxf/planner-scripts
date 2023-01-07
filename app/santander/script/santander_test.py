@@ -1,25 +1,45 @@
-# import unittest
-# from app.santander.script.santander import main as santander_script
+from snapshottest import TestCase
+from app.santander.script.santander import main as santander_script
+from app.santander.script.santander import filterByDateInterval
+from app.santander.script.utils import parseJsonFile
+import pandas as pd
+import locale
 
+TEST_DEBIT_FILE_PATH = '/Users/gmijares/planner/testing-lab/script-api/app/santander/script/files/sample_debit.xls'
+TEST_JSON_FILE_PATH_DEBIT = 'app/santander/script/files/example_debit.json'
+TEST_DEBIT_FILE_TYPE = 'debit'
+TEST_CREDIT_FILE_PATH = '/Users/gmijares/planner/testing-lab/script-api/app/santander/script/files/sample_credit.xls'
+TEST_JSON_FILE_PATH_CREDIT = 'app/santander/script/files/example_credit.json'
+TEST_CREDIT_FILE_TYPE = 'credit'
 
-# TEST_FILE_PATH = '/Users/gmijares/planner/testing-lab/script-api/app/santander/script/files/sample.xls'
-# TEST_FILE_TYPE = 'debit'
-# TEST_SINCE_DATE = '2022-07-01'
-# TEST_UNTIL_DATE = '2022-07-31'
-# class UserModelCase(unittest.TestCase):
+class UserModelCase(TestCase):
     
-#     def setUp(self):
-#         self.santander_script = santander_script
+    def setUp(self):
+        self.santander_script = santander_script
+        locale.setlocale(locale.LC_ALL,'es_ES.UTF-8')
 
-#     def test_hello_world_script_returns_list(self):
-#         params = {
-#             'filePath':TEST_FILE_PATH,
-#             'fileType':TEST_FILE_TYPE,
-#             'sinceDate':TEST_SINCE_DATE,
-#             'untilDate':TEST_UNTIL_DATE
-#         }
-#         result = santander_script(params)
-#         for r in result:
-#             print(r)
+    def test_xls_file_gets_parsed_correctly(self):
+        recordsDebit = self.santander_script({
+            'filePath':TEST_DEBIT_FILE_PATH,
+            'fileType':TEST_DEBIT_FILE_TYPE
+        })
+        recordsCredit = self.santander_script({
+            'filePath':TEST_CREDIT_FILE_PATH,
+            'fileType':TEST_CREDIT_FILE_TYPE
+        })
 
-#         self.assertTrue(True)
+        self.assertMatchSnapshot(recordsDebit, 'santander_script()_debit')
+        self.assertMatchSnapshot(recordsCredit, 'santander_script()_credit')
+
+    def test_data_frame_gets_filtered_by_time_interval(self):
+        dfDebit = pd.DataFrame(parseJsonFile(TEST_JSON_FILE_PATH_DEBIT))
+        dfCredit = pd.DataFrame(parseJsonFile(TEST_JSON_FILE_PATH_CREDIT))
+        dfDebit['dateExecuted'] = pd.to_datetime(dfDebit["FECHA"], format='%d/%b/%Y').dt.strftime('%Y-%m-%d')
+        dfCredit['dateExecuted'] = pd.to_datetime(dfDebit["FECHA"], format='%d/%b/%Y').dt.strftime('%Y-%m-%d')
+        sinceDate = '2000-01-05'
+        untilDate = '2000-01-20'
+        filteredRecordsDebit = filterByDateInterval(dfDebit,sinceDate,untilDate).to_dict('records')
+        filteredRecordsCredit = filterByDateInterval(dfCredit,sinceDate,untilDate).to_dict('records')
+        self.assertMatchSnapshot(filteredRecordsDebit, 'filterByDateInterval_debit')
+        self.assertMatchSnapshot(filteredRecordsCredit, 'filterByDateInterval_credit')
+
