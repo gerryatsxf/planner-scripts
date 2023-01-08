@@ -18,7 +18,7 @@ class FileContentParser(object):
         return self.parseData()
 
     def getFileContent(self):
-        f = open(self.filePath, 'r')
+        f = open(self.filePath, 'r',encoding="ISO-8859-1")
         fileContent = f.read().replace('\n', '').replace('\r', '')
         f.close()
         self.fileContent = fileContent
