@@ -20,14 +20,6 @@ class DataFrameDateParser(object):
         self.parseHours()
         return self.df
 
-    # def convert(self,s):
-    #     months = self.MONTH_MAP.keys()
-    #     for month in months:
-    #         if month in s:
-    #             s = s.replace(month,self.MONTH_MAP[month])
-    #             s = s.replace('/','-')
-    #     return s
-
     def parseDates(self):
         df = self.df
         df['dateExecuted'] = pd.to_datetime(df["FECHA"], format='%d/%b/%Y').dt.strftime('%Y-%m-%d')

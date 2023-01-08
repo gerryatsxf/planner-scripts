@@ -4,7 +4,7 @@ from app.hello_world.dto.hello_world_request_dto import helloWorldRequestDto
 from app.hello_world.dto.hello_world_response_dto import helloWorldResponseDto
 from kink import inject
 
-ns = Namespace('hello-world', __name__)
+ns = Namespace('hello-world',__name__)
 
 # ROUTES
 @ns.route('')
@@ -15,20 +15,20 @@ class HelloWorldRun(Resource):
         super().__init__(api)
         self.hello_world_service = hello_world_service # this dependency should always be injected from di.bootstrap
     
-    @ns.doc('index')
+    @ns.doc('/index')
     def get(self):
         '''Index available script names associated to hello_world script'''
         response = {'data':self.hello_world_service.get_script_index()}
         return response
 
-    @ns.doc('run')
+    @ns.doc('/run_script')
     @ns.expect(helloWorldRequestDto)
     @ns.marshal_with(helloWorldResponseDto, code=201)
     @ns.param('heyyy')
     def post(self):
         '''Run hello_world script'''
         params = ns.payload
-        a = request.args.get('heyyy')
+        a = request.args.get('heyyy') # just for shows
         response = {'data':self.hello_world_service.run_script(params)}
         return response
 
