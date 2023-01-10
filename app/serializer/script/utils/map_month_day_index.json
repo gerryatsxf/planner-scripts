@@ -1,0 +1,36 @@
+[
+    {"monthDayStrNumber":"01","monthDayIndex":"a"},
+    {"monthDayStrNumber":"02","monthDayIndex":"b"},
+    {"monthDayStrNumber":"03","monthDayIndex":"c"},
+    {"monthDayStrNumber":"04","monthDayIndex":"d"},
+    {"monthDayStrNumber":"05","monthDayIndex":"e"},
+    {"monthDayStrNumber":"06","monthDayIndex":"f"},
+    {"monthDayStrNumber":"07","monthDayIndex":"g"},
+    {"monthDayStrNumber":"08","monthDayIndex":"h"},
+    {"monthDayStrNumber":"09","monthDayIndex":"i"},
+    {"monthDayStrNumber":"10","monthDayIndex":"j"},
+
+    {"monthDayStrNumber":"11","monthDayIndex":"k"},
+    {"monthDayStrNumber":"12","monthDayIndex":"l"},
+    {"monthDayStrNumber":"13","monthDayIndex":"m"},
+    {"monthDayStrNumber":"14","monthDayIndex":"n"},
+    {"monthDayStrNumber":"15","monthDayIndex":"o"},
+    {"monthDayStrNumber":"16","monthDayIndex":"p"},
+    {"monthDayStrNumber":"17","monthDayIndex":"q"},
+    {"monthDayStrNumber":"18","monthDayIndex":"r"},
+    {"monthDayStrNumber":"19","monthDayIndex":"s"},
+    {"monthDayStrNumber":"20","monthDayIndex":"t"},
+
+    {"monthDayStrNumber":"21","monthDayIndex":"u"},
+    {"monthDayStrNumber":"22","monthDayIndex":"v"},
+    {"monthDayStrNumber":"23","monthDayIndex":"w"},
+    {"monthDayStrNumber":"24","monthDayIndex":"x"},
+    {"monthDayStrNumber":"25","monthDayIndex":"y"},
+    {"monthDayStrNumber":"26","monthDayIndex":"z"},
+    {"monthDayStrNumber":"27","monthDayIndex":"A"},
+    {"monthDayStrNumber":"28","monthDayIndex":"B"},
+    {"monthDayStrNumber":"29","monthDayIndex":"C"},
+    {"monthDayStrNumber":"30","monthDayIndex":"D"},
+
+    {"monthDayStrNumber":"31","monthDayIndex":"E"}
+]

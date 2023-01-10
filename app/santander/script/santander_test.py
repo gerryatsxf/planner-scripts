@@ -1,14 +1,14 @@
 from snapshottest import TestCase
 from app.santander.script.santander import main as santander_script
 from app.santander.script.santander import filterByDateInterval
-from app.santander.script.utils import parseJsonFile
+from app.utils import parseJsonFile
 import pandas as pd
 import locale
 
-TEST_DEBIT_FILE_PATH = '/Users/gmijares/planner/testing-lab/script-api/app/santander/script/files/sample_debit.xls'
+TEST_DEBIT_FILE_PATH = 'app/santander/script/files/sample_debit.xls'
 TEST_JSON_FILE_PATH_DEBIT = 'app/santander/script/files/example_debit.json'
 TEST_DEBIT_FILE_TYPE = 'debit'
-TEST_CREDIT_FILE_PATH = '/Users/gmijares/planner/testing-lab/script-api/app/santander/script/files/sample_credit.xls'
+TEST_CREDIT_FILE_PATH = 'app/santander/script/files/sample_credit.xls'
 TEST_JSON_FILE_PATH_CREDIT = 'app/santander/script/files/example_credit.json'
 TEST_CREDIT_FILE_TYPE = 'credit'
 

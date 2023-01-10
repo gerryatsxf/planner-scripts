@@ -16,7 +16,12 @@ class DataFrameRowParser(object):
         self.transformDescription()
         self.transformFlows()
         self.dropColumns()
+        self.flipCreditFileRecords()
         return self.df
+
+    def flipCreditFileRecords(self):
+        if self.fileType == 'credit':
+            self.df = self.df.reindex(index=self.df.index[::-1])  # flip since original order for credit given is descending
 
     def transformDescription(self):
         df = self.df

@@ -1,5 +1,5 @@
 from app.santander.script.utils.data_frame_date_parser import DataFrameDateParser
-from app.santander.script.utils import parseJsonFile
+from app.utils import parseJsonFile
 from snapshottest import TestCase
 import pandas as pd
 import time
