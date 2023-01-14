@@ -1,0 +1,122 @@
+[
+    {
+      "dateExecuted": "2022-01-01",
+      "description": "PAYPAL RAPI",
+      "inflow": 0,
+      "outflow": 300,
+      "serialKey": "PAYPAL RAPI___0___300000",
+      "serialIndex": "aaa"
+    },
+    {
+      "dateExecuted": "2022-01-02",
+      "description": "PIZZA HOT",
+      "inflow": 0,
+      "outflow": 100.1,
+      "serialKey": "PIZZA HOT___0___100100",
+      "serialIndex": "aba"
+    },
+    {
+      "dateExecuted": "2022-01-15",
+      "description": "DISH SOAP",
+      "inflow": 0,
+      "outflow": 30.01,
+      "serialKey": "DISH SOAP___0___30010",
+      "serialIndex": "aoa"
+    },
+    {
+      "dateExecuted": "2022-02-01",
+      "description": "RENT",
+      "inflow": 0,
+      "outflow": 10000,
+      "serialKey": "RENT___0___10000000",
+      "serialIndex": "baa"
+    },
+    {
+      "dateExecuted": "2022-02-01",
+      "description": "NETFLIS",
+      "inflow": 0,
+      "outflow": 110,
+      "serialKey": "NETFLIS___0___110000",
+      "serialIndex": "bab"
+    },
+    {
+      "dateExecuted": "2022-02-01",
+      "description": "INTERNET",
+      "inflow": 0,
+      "outflow": 300,
+      "serialKey": "INTERNET___0___300000",
+      "serialIndex": "bac"
+    },
+    {
+      "dateExecuted": "2022-02-01",
+      "description": "HBO",
+      "inflow": 0,
+      "outflow": 80,
+      "serialKey": "HBO___0___80000",
+      "serialIndex": "bad"
+    },
+    {
+      "dateExecuted": "2022-02-15",
+      "description": "BURGER QUEEN",
+      "inflow": 0,
+      "outflow": 150,
+      "serialKey": "BURGER QUEEN___0___150000",
+      "serialIndex": "boa"
+    },
+    {
+      "dateExecuted": "2022-02-15",
+      "description": "JHONNY AIRPLANES",
+      "inflow": 0,
+      "outflow": 200,
+      "serialKey": "JHONNY AIRPLANES___0___200000",
+      "serialIndex": "bob"
+    },
+    {
+      "dateExecuted": "2022-02-16",
+      "description": "PAYPAL AMAZONG",
+      "inflow": 0,
+      "outflow": 650,
+      "serialKey": "PAYPAL AMAZONG___0___650000",
+      "serialIndex": "bpa"
+    },
+    {
+      "dateExecuted": "2022-05-17",
+      "description": "MOVIES",
+      "inflow": 0,
+      "outflow": 300,
+      "serialKey": "MOVIES___0___300000",
+      "serialIndex": "eqa"
+    },
+    {
+      "dateExecuted": "2022-05-17",
+      "description": "ICE CREAM",
+      "inflow": 0,
+      "outflow": 90,
+      "serialKey": "ICE CREAM___0___90000",
+      "serialIndex": "eqb"
+    },
+    {
+      "dateExecuted": "2022-05-18",
+      "description": "BOOKS",
+      "inflow": 0,
+      "outflow": 400,
+      "serialKey": "BOOKS___0___400000",
+      "serialIndex": "era"
+    },
+    {
+      "dateExecuted": "2022-05-19",
+      "description": "CLOTHES",
+      "inflow": 0,
+      "outflow": 3500,
+      "serialKey": "CLOTHES___0___3500000",
+      "serialIndex": "esa"
+    },
+    {
+      "dateExecuted": "2022-05-29",
+      "description": "AIRPLANE TICKETS",
+      "inflow": 0,
+      "outflow": 7000,
+      "serialKey": "AIRPLANE TICKETS___0___7000000",
+      "serialIndex": "eCa"
+    }
+  ]

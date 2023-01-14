@@ -7,10 +7,10 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots['UserModelCase::test_data_frame_gets_filtered_by_time_interval filterByDateInterval_credit'] = [
+snapshots['SantanderScriptTest::test_data_frame_gets_filtered_by_time_interval filterByDateInterval_credit'] = [
 ]
 
-snapshots['UserModelCase::test_data_frame_gets_filtered_by_time_interval filterByDateInterval_debit'] = [
+snapshots['SantanderScriptTest::test_data_frame_gets_filtered_by_time_interval filterByDateInterval_debit'] = [
     {
         'CONCEPTO': 'tacos',
         'DEPOSITO': '',
@@ -24,7 +24,7 @@ snapshots['UserModelCase::test_data_frame_gets_filtered_by_time_interval filterB
     }
 ]
 
-snapshots['UserModelCase::test_xls_file_gets_parsed_correctly santander_script()_credit'] = [
+snapshots['SantanderScriptTest::test_xls_file_gets_parsed_correctly santander_script()_credit'] = [
     {
         'dateExecuted': '2022-01-01',
         'description': 'PAYPAL RAPI',
@@ -33,7 +33,7 @@ snapshots['UserModelCase::test_xls_file_gets_parsed_correctly santander_script()
     }
 ]
 
-snapshots['UserModelCase::test_xls_file_gets_parsed_correctly santander_script()_debit'] = [
+snapshots['SantanderScriptTest::test_xls_file_gets_parsed_correctly santander_script()_debit'] = [
     {
         'dateExecuted': '2000-01-01',
         'description': 'internet',

@@ -12,7 +12,7 @@ TEST_CREDIT_FILE_PATH = 'app/santander/script/files/sample_credit.xls'
 TEST_JSON_FILE_PATH_CREDIT = 'app/santander/script/files/example_credit.json'
 TEST_CREDIT_FILE_TYPE = 'credit'
 
-class UserModelCase(TestCase):
+class SantanderScriptTest(TestCase):
     
     def setUp(self):
         self.santander_script = santander_script

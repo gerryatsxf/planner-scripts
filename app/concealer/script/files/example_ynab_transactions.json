@@ -1,0 +1,114 @@
+[
+
+    {
+        "id":"1",
+        "dateExecuted": "2022-01-01",
+        "description": "(aaa) [PAYPAL RAPI]",
+        "inflow": 0.0,
+        "outflow": 300.0
+    },
+    {
+        "id":"2",
+        "dateExecuted": "2022-01-02",
+        "description": "(aba) [PIZZA HOT]",
+        "inflow": 0.0,
+        "outflow": 100.10
+    },
+    {
+        "id":"3",
+        "dateExecuted": "2022-01-15",
+        "description": "(aoa) [DISH SOAP]",
+        "inflow": 0.0,
+        "outflow": 30.01
+    },
+
+
+
+    {
+        "id":"4",
+        "dateExecuted": "2022-02-01",
+        "description": "(baa) [RENT]",
+        "inflow": 0.0,
+        "outflow": 10000.0
+    },
+    {
+        "id":"5",
+        "dateExecuted": "2022-02-01",
+        "description": "(bab) [NETFLIS]",
+        "inflow": 0.0,
+        "outflow": 110.0
+    },
+    {
+        "id":"6",
+        "dateExecuted": "2022-02-01",
+        "description": "(bac) [INTERNET]",
+        "inflow": 0.0,
+        "outflow": 300.0
+    },
+    {
+        "id":"7",
+        "dateExecuted": "2022-02-01",
+        "description": "(bad) [HBO]",
+        "inflow": 0.0,
+        "outflow": 80.0
+    },
+    {
+        "id":"8",
+        "dateExecuted": "2022-02-15",
+        "description": "(boa) [BURGER QUEEN]",
+        "inflow": 0.0,
+        "outflow": 150.0
+    },
+    {
+        "id":"9",
+        "dateExecuted": "2022-02-15",
+        "description": "(bob) [JHONNY AIRPLANES]",
+        "inflow": 0.0,
+        "outflow": 200.0
+    },
+    {
+        "id":"10",
+        "dateExecuted": "2022-02-16",
+        "description": "(bpa) [PAYPAL AMAZONG]",
+        "inflow": 0.0,
+        "outflow": 650.0
+    },
+
+
+
+    {
+        "id":"11",
+        "dateExecuted": "2022-05-17",
+        "description": "(eqa) [MOVIES]",
+        "inflow": 0.0,
+        "outflow": 300.0
+    },
+    {
+        "id":"12",
+        "dateExecuted": "2022-05-17",
+        "description": "(eqb) [ICE CREAM]",
+        "inflow": 0.0,
+        "outflow": 90.0
+    },
+    {
+        "id":"13",
+        "dateExecuted": "2022-05-18",
+        "description": "(era) [BOOKS]",
+        "inflow": 0.0,
+        "outflow": 400.0
+    },
+    {
+        "id":"14",
+        "dateExecuted": "2022-05-19",
+        "description": "(esa) [CLOTHES]",
+        "inflow": 0.0,
+        "outflow": 3500.0
+    },
+    {
+        "id":"15",
+        "dateExecuted": "2022-05-29",
+        "description": "(eCa) [AIRPLANE TICKETS]",
+        "inflow": 0.0,
+        "outflow": 7000.0
+    }
+]

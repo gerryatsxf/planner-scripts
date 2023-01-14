@@ -3,7 +3,7 @@ from unittest import mock
 from kink import di
 from app.hello_world.service.hello_world import HelloWorldService
 
-class UserModelCase(unittest.TestCase):
+class HelloWorldServiceTest(unittest.TestCase):
     
     @mock.patch("app.hello_world.script.hello_world")
     def setUp(self, hello_world_script_mock):

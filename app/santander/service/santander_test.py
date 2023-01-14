@@ -3,7 +3,7 @@ from unittest import TestCase
 from kink import di
 from app.santander.service.santander import SantanderService
 
-class UserModelCase(TestCase):
+class SantanderServiceTest(TestCase):
     
     @mock.patch("app.santander.script.santander")
     def setUp(self, santander_script_mock):

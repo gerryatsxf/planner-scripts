@@ -1,14 +1,12 @@
 from kink import di
 from app.santander.script.santander import main
 from app.santander.service.santander import SantanderService
+from app.utils import test_env_not_implemented
 import os
 
 def bootstrap_di() -> None:
     
     SCRIPT_API_ENV = os.getenv('SCRIPT_API_ENV')
-
-    def test_env_not_implemented():
-        raise Exception("TEST ENVIRONTMENT NOT IMPLEMENTED FOR REQUESTED OBJECT OR MODULE")
 
     match SCRIPT_API_ENV:
         case 'dev':

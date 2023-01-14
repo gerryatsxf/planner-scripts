@@ -21,6 +21,9 @@ def create_app(config_class=DevConfig):
     from app.santander import ns as ns2
     api.add_namespace(ns2)
 
+    from app.serializer import ns as ns3
+    api.add_namespace(ns3)
+
     api.init_app(app)
 
     return app

@@ -1,7 +1,7 @@
 import unittest
 from app.hello_world.script.hello_world import main as hello_world_script
 
-class UserModelCase(unittest.TestCase):
+class HelloWorldScripTest(unittest.TestCase):
     
     def setUp(self):
         self.hello_world_script = hello_world_script

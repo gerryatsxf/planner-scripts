@@ -10,13 +10,13 @@
         "dateExecuted": "2022-01-02",
         "description": "PIZZA HOT",
         "inflow": 0.0,
-        "outflow": 100.0
+        "outflow": 100.10
     },
     {
         "dateExecuted": "2022-01-15",
         "description": "DISH SOAP",
         "inflow": 0.0,
-        "outflow": 30.0
+        "outflow": 30.01
     },
 
 

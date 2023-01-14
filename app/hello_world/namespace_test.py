@@ -7,7 +7,7 @@ import os
 
 os.environ['SCRIPT_API_ENV'] = TestConfig.SCRIPT_API_ENV
 
-class UserModelCase(unittest.TestCase):
+class HelloWorldNamespace(unittest.TestCase):
     
     @mock.patch("app.hello_world.service.hello_world")
     def setUp(self, hello_world_service_mock):
