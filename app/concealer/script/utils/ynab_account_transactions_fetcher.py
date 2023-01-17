@@ -1,7 +1,7 @@
 from kink import inject
 
 @inject # for dependency injection magic!
-class AccountTransactionsFetcher(object):
+class YnabAccountTransactionsFetcher(object):
 
     def __init__(self, budgetName, accountName, ynab_client = None) -> None:
         self.ynab_client = ynab_client # this dependency should always be injected from di.bootstrap
@@ -13,6 +13,12 @@ class AccountTransactionsFetcher(object):
         filtered = list(filter(lambda b: b['name'] == budgetName, budgetList))
 
         self.budget = filtered[0] if len(filtered) == 1 else None
+
+    def getBudget(self):
+        return self.budget
+
+    def getAccount(self):
+        return self.account
 
     def setAccount(self, accountName):
         accountList = self.ynab_client.accounts.get_accounts(self.budget['id'])['data']['accounts']

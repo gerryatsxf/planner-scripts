@@ -2,7 +2,7 @@ from snapshottest import TestCase
 from app.concealer.script.utils.ynab_transactions_parser import YnabTransactionsParser
 from app.utils import parseJsonFile
 
-TEST_YNAB_TRANSACTIONS_JSON_FILE = 'app/concealer/script/files/example_ynab_transactions.json'
+TEST_YNAB_TRANSACTIONS_JSON_FILE = 'app/concealer/script/files/example_translated_ynab_transactions.json'
 
 
 class YnabTransactionsParserTest(TestCase):

@@ -20,7 +20,7 @@ class SantanderNamespace(TestCase):
     def tearDown(self):
         self.app_context.pop()
 
-    def test_serializer_service_run_script_called(self):
+    def test_santander_service_run_script_called(self):
         tester = self.app.test_client(self)
         params ={
             "filePath": "app/santander/script/files/sample_debit.xls",

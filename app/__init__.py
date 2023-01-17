@@ -24,6 +24,9 @@ def create_app(config_class=DevConfig):
     from app.serializer import ns as ns3
     api.add_namespace(ns3)
 
+    from app.concealer import ns as ns4
+    api.add_namespace(ns4)
+
     api.init_app(app)
 
     return app

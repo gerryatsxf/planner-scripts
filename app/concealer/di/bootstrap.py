@@ -1,7 +1,7 @@
 from kink import di
 from app.concealer.script.concealer import main
 from app.concealer.service.concealer import ConcealerService
-from app.concealer.script.utils.account_transactions_fetcher import AccountTransactionsFetcher
+from app.concealer.script.utils.ynab_account_transactions_fetcher import YnabAccountTransactionsFetcher
 from app.utils import test_env_not_implemented
 from app.clients.ynab import YnabClient
 import os
@@ -30,12 +30,12 @@ def bootstrap_di() -> None:
             di['concealer_script'] = main
             di['concealer_service'] = ConcealerService()
             di['ynab_client'] = YnabClient(YNAB_URL,YNAB_API_TOKEN)
-            di['account_transactions_fetcher'] = AccountTransactionsFetcher
+            di['account_transactions_fetcher'] = YnabAccountTransactionsFetcher
         case 'prod':
             di['concealer_script'] = main
             di['concealer_service'] = ConcealerService()
             di['ynab_client'] = YnabClient(YNAB_URL,YNAB_API_TOKEN)
-            di['account_transactions_fetcher'] = AccountTransactionsFetcher
+            di['account_transactions_fetcher'] = YnabAccountTransactionsFetcher
         case 'test':
             di['santander_script'] = test_env_not_implemented
             di['concealer_service'] = test_env_not_implemented

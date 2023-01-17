@@ -44,5 +44,5 @@ class SerializerService(object):
     def flowsAreValid(self, records):
         return all(self.flowIsValid(record['inflow']) and self.flowIsValid(record['outflow']) for record in records)
 
-    def flowIsValid(self, flow: float):
-        return type(flow) is float and flow >= 0
+    def flowIsValid(self, flow):
+        return type(flow) is float or type(flow) is int and flow >= 0

@@ -1,0 +1,25 @@
+[
+    {
+        "id": "36f124e2-db31-4260-be2b-4b07e09b4973", 
+        "date": "2023-01-01", 
+        "amount": 3669330, 
+        "cleared": "cleared", 
+        "approved": true, 
+        "account_id": "dbeee641-5140-4740-9367-2affb5f60ddf", 
+        "deleted": false, 
+        "account_name": "santander-debit", 
+        "subtransactions": [], 
+        "memo": "00000 Starting Balance", 
+        "flag_color": null, 
+        "payee_id": "63c37a64-014b-4e5c-ae3f-ad7408afeeb1", 
+        "category_id": "38f05022-d22f-4492-b667-852869132704", 
+        "transfer_account_id": null, 
+        "transfer_transaction_id": null, 
+        "matched_transaction_id": null, 
+        "import_id": null, 
+        "import_payee_name": null, 
+        "import_payee_name_original": null, 
+        "payee_name": "Starting Balance", 
+        "category_name": "Inflow: Ready to Assign"
+    }
+]
