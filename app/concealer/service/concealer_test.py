@@ -26,7 +26,7 @@ class ConcealerServiceTest(TestCase):
                 }
             ]
         }
-        self.concealer_script_mock.return_value = {}
+        self.concealer_script_mock.return_value = {}, '', ''
         result = self.concealer_service.run_script(params)
         self.concealer_script_mock.assert_called_with(params)
         self.assertTrue('concealed' in result.keys())

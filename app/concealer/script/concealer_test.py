@@ -4,12 +4,12 @@ from app.concealer.script.concealer import main as concealer_script
 from app.utils import parseJsonFile
 from kink import di
 
-TEST_YNAB_TRANSACTIONS_JSON_FILE = 'app/concealer/script/files/example_ynab_transactions.json'
+TEST_YNAB_TRANSACTIONS_JSON_FILE = 'app/concealer/script/files/example_translated_ynab_transactions.json'
 TEST_SERIALIZED_BANK_RECORDS_JSON_FILE = 'app/concealer/script/files/example_serialized_bank_records.json'
 
 class ConcealerScriptTest(TestCase):
 
-    @mock.patch("app.concealer.script.utils.account_transactions_fetcher.AccountTransactionsFetcher")
+    @mock.patch("app.concealer.script.utils.ynab_account_transactions_fetcher.YnabAccountTransactionsFetcher")
     def setUp(self, account_transactions_fetcher_mock):
         self.concealer_script = concealer_script
         di['account_transactions_fetcher'] = account_transactions_fetcher_mock

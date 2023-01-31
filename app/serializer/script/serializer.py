@@ -1,6 +1,6 @@
 import pandas as pd
 from app.utils import parseJsonFile
-
+from app.serializer.script.utils.transfers_pipeline import TransferPipeline
 
 
 MONTH_INDEX_PATH = 'app/serializer/script/utils/map_month_index.json'
@@ -54,13 +54,12 @@ def serialMerge(df):
     return df
 
 def main(params):
-
     records = params['records']
     df = parseDataFrame(records)
     df = setRowsMonth(df)
     df = setRowsMonthDay(df)
+    df = TransferPipeline(df).run()
     df = setRowsDailyIndex(df)
     df = setSerialKey(df)
     df = serialMerge(df)
-
     return df.to_dict('records')

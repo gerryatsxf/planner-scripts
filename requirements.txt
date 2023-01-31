@@ -5,3 +5,4 @@ kink
 beautifulsoup4
 pandas
 numpy
+httpx

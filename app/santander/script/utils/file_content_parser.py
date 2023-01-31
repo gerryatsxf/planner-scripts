@@ -1,5 +1,8 @@
 from bs4 import BeautifulSoup
 import pandas as pd
+import urllib.request  # the lib that handles the url stuff
+# import urlparse
+
 
 class FileContentParser(object):
 
@@ -18,10 +21,17 @@ class FileContentParser(object):
         return self.parseData()
 
     def getFileContent(self):
-        f = open(self.filePath, 'r',encoding="ISO-8859-1")
-        fileContent = f.read().replace('\n', '').replace('\r', '')
-        f.close()
-        self.fileContent = fileContent
+        fileContent = ''
+        if urllib.parse.urlparse(self.filePath).scheme != "":
+            for line in urllib.request.urlopen(self.filePath):
+                fileContent = fileContent + line.decode("ISO-8859-1")
+            self.fileContent = fileContent
+        else:
+            f = open(self.filePath, 'r',encoding="ISO-8859-1")
+            fileContent = f.read().replace('\n', '').replace('\r', '')
+            f.close()
+            self.fileContent = fileContent
+
         return fileContent
 
     def getSoup(self):

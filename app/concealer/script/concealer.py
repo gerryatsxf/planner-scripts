@@ -3,7 +3,6 @@ from app.concealer.script.utils.ynab_account_transactions_fetcher import YnabAcc
 from app.concealer.script.utils.ynab_transactions_parser import YnabTransactionsParser
 from app.concealer.script.utils.data_reconciliator import DataReconciliator
 from app.concealer.script.utils.ynab_records_translator import ynabRecordsTranslation
-
 from kink import inject
 
 @inject # for dependency injection magic! 
@@ -20,9 +19,9 @@ def main(
     serializedRecords = params['serializedRecords'] 
     fetcher = account_transactions_fetcher(budgetName,accountName)
     transactions = fetcher.fetch()
-    parsedTransactions = stored_transactions_parser(transactions).getTransactions()
-    concealed = data_reconciliator(serializedRecords, parsedTransactions).reconciliate()
     account = fetcher.getAccount()
+    parsedTransactions = stored_transactions_parser(transactions).getTransactions()
+    concealed = data_reconciliator(serializedRecords, parsedTransactions).reconciliate()    
 
     for action in ['create','update','delete']:
         concealed[action] = record_translator(concealed[action],account['id'])

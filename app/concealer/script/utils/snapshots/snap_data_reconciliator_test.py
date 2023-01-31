@@ -12,7 +12,7 @@ snapshots['DataReconciliatorTest::test_naive_reconciliation_compliance DataRecon
         {
             'dateExecuted': '2022-01-02',
             'description': 'BIG CAESARS',
-            'id': '0',
+            'id': None,
             'inflow': 0,
             'outflow': 90.1,
             'serialIndex': 'aba',
@@ -21,7 +21,7 @@ snapshots['DataReconciliatorTest::test_naive_reconciliation_compliance DataRecon
         {
             'dateExecuted': '2022-05-29',
             'description': 'BUS TICKETS',
-            'id': '0',
+            'id': None,
             'inflow': 0,
             'outflow': 1400.0,
             'serialIndex': 'eCb',
@@ -30,7 +30,7 @@ snapshots['DataReconciliatorTest::test_naive_reconciliation_compliance DataRecon
         {
             'dateExecuted': '2022-05-19',
             'description': 'CLOTHES',
-            'id': '0',
+            'id': None,
             'inflow': 0,
             'outflow': 3500.0,
             'serialIndex': 'esa',
@@ -39,7 +39,7 @@ snapshots['DataReconciliatorTest::test_naive_reconciliation_compliance DataRecon
         {
             'dateExecuted': '2022-05-17',
             'description': 'MUSIC FESTIVAL',
-            'id': '0',
+            'id': None,
             'inflow': 0,
             'outflow': 900.0,
             'serialIndex': 'eqc',
@@ -48,11 +48,20 @@ snapshots['DataReconciliatorTest::test_naive_reconciliation_compliance DataRecon
         {
             'dateExecuted': '2022-01-01',
             'description': 'PAYPAL PETCO',
-            'id': '0',
+            'id': None,
             'inflow': 0,
             'outflow': 400.0,
             'serialIndex': 'aaa',
             'serialKey': 'PAYPAL PETCO___0___400000'
+        },
+        {
+            'dateExecuted': '2022-05-17',
+            'description': 'SHOES',
+            'id': None,
+            'inflow': 0,
+            'outflow': 900.0,
+            'serialIndex': 'eqb',
+            'serialKey': 'SHOES___0___900000'
         }
     ],
     'delete': [
@@ -77,22 +86,28 @@ snapshots['DataReconciliatorTest::test_naive_reconciliation_compliance DataRecon
     ],
     'update': [
         {
+            'auxIndex': 'aaa___PAYPAL RAPI___0___300000',
             'dateExecuted': '2022-01-01',
             'description': 'PAYPAL RAPI',
             'id': '1',
             'inflow': 0,
             'outflow': 300.0,
             'serialIndex': 'aab',
-            'serialKey': 'PAYPAL RAPI___0___300000'
+            'serialIndex___OLD': 'aaa',
+            'serialKey': 'PAYPAL RAPI___0___300000',
+            'source': 'stored'
         },
         {
+            'auxIndex': 'aba___PIZZA HOT___0___100100',
             'dateExecuted': '2022-01-02',
             'description': 'PIZZA HOT',
             'id': '2',
             'inflow': 0,
             'outflow': 100.1,
             'serialIndex': 'abb',
-            'serialKey': 'PIZZA HOT___0___100100'
+            'serialIndex___OLD': 'aba',
+            'serialKey': 'PIZZA HOT___0___100100',
+            'source': 'stored'
         }
     ]
 }
