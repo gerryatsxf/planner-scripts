@@ -9,6 +9,6 @@ docker image build -t scriptapi .
 
 Run container
 docker container run --detach --name gerry_scriptapi --publish 5001:5001 scriptapi
-
+ 
 See logs
 docker container logs --follow gerry_scriptapi
