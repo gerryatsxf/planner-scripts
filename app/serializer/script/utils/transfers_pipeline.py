@@ -11,6 +11,8 @@ class TransferPipeline(object):
         items = self.cashWithdrawalPipe(items)
         items = self.creditPaymentPipe(items)
         items = self.paymentFromDebitPipe(items)
+        items = self.paymentFromCashPipe(items)
+        print(items)
         return items 
 
     def cashDepositPipe(self, items):
@@ -22,7 +24,13 @@ class TransferPipeline(object):
     def cashWithdrawalPipe(self, items):
         key = 'BANCO SANTANDER'
         newMemo = 'cash-withdrawal'
-        items.loc[items.description.str.contains(key),'description'] = newMemo
+        items.loc[(items.description.str.contains(key)) & (items.outflow > 0),'description'] = newMemo
+        return items
+
+    def paymentFromCashPipe(self,items):
+        key = 'BANCO SANTANDER'
+        newMemo = 'payment-from-cash'
+        items.loc[(items.description.str.contains(key)) & (items.inflow > 0),'description'] = newMemo
         return items
 
     def creditPaymentPipe(self, items):
