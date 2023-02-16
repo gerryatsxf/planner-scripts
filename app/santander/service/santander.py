@@ -10,6 +10,8 @@ class SantanderService(object):
 
     def run_script(self, params):
 
+        params['filePath'] = params['filePath'].replace('localhost','host.docker.internal')
+
         if type(params) is not dict:
             raise TypeError("params NOT OF TYPE DICTIONARY")
 
