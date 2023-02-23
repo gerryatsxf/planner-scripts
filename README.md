@@ -1,3 +1,7 @@
+## Description
+
+This is the transactions API. It communicates with YNAB to update accounts' transactions. It depends on a bank-movements file being provided in order to achieve this. At the moment this API supports Santander debit and credit files only.
+
 ## Testing
 Useful unit testing commands
 
