@@ -18,6 +18,9 @@ class ConcealerService(object):
 
         if 'accountName' not in params.keys():
             raise AttributeError("accountName NOT SETUP IN PARAMS")
+        
+        if 'ynabToken' not in params.keys():
+            raise AttributeError("ynabToken NOT SETUP IN PARAMS")
 
         if type(params['budgetName']) is not str or type(params['accountName']) is not str:
             raise ValueError("TYPE OF EITHER budgetName OR accountName IS NOT STRING")

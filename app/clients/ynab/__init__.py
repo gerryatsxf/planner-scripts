@@ -17,10 +17,17 @@ from app.clients.ynab.openapi_generated_client.ynab_api_endpoints_client.api.tra
 class YnabClient(object):
 
     def __init__(self, ynabUrl,ynabApiToken):
-        client = AuthenticatedClient(ynabUrl,ynabApiToken)
-        self.budgets = BudgetsApi(client)
-        self.accounts = AccountsApi(client)
-        self.transactions = TransactionsApi(client)
+        self.client = AuthenticatedClient(ynabUrl,ynabApiToken)
+        self.budgets = BudgetsApi(self.client)
+        self.accounts = AccountsApi(self.client)
+        self.transactions = TransactionsApi(self.client)
+
+    def reassignToken(self,ynabApiToken):
+
+        self.client.token = ynabApiToken
+        self.budgets = BudgetsApi(self.client)
+        self.accounts = AccountsApi(self.client)
+        self.transactions = TransactionsApi(self.client)
 
 class BudgetsApi(object):
 
