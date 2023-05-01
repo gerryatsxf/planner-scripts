@@ -16,8 +16,9 @@ def main(
 
     budgetName = params['budgetName']
     accountName = params['accountName']
+    ynabToken = params['ynabToken']
     serializedRecords = params['serializedRecords'] 
-    fetcher = account_transactions_fetcher(budgetName,accountName)
+    fetcher = account_transactions_fetcher(budgetName,accountName,ynabToken)
     transactions = fetcher.fetch()
     account = fetcher.getAccount()
     parsedTransactions = stored_transactions_parser(transactions).getTransactions()

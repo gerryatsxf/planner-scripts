@@ -3,8 +3,9 @@ from kink import inject
 @inject # for dependency injection magic!
 class YnabAccountTransactionsFetcher(object):
 
-    def __init__(self, budgetName, accountName, ynab_client = None) -> None:
+    def __init__(self, budgetName, accountName, ynabToken, ynab_client = None) -> None:
         self.ynab_client = ynab_client # this dependency should always be injected from di.bootstrap
+        self.ynab_client.reassignToken(ynabToken)
         self.setBudget(budgetName)
         self.setAccount(accountName)
 
