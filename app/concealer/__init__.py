@@ -1,7 +1,7 @@
 from app.concealer.namespace import ns
 from app.concealer.di.bootstrap import bootstrap_di
 
-bootstrap_di()
+bootstrap_di() # TODO: move this down, let the from statements be at the top
 
 from app.concealer.dto.concealer_request_dto import concealerRequestDto
 from app.concealer.dto.concealer_response_dto import concealerResponseDto
@@ -18,4 +18,3 @@ ns.models[concealedRecordsDto.name] = concealedRecordsDto
 ns.models[ynabAccount.name] = ynabAccount
 ns.models[ynabBudget.name] = ynabBudget
 ns.models[ynabTransaction.name] = ynabTransaction
-

@@ -783,7 +783,7 @@ paths:
         - Transactions
       summary: List transactions
       description: Returns budget transactions
-      operationId: getTransactions
+      operationId: get_transactions
       parameters:
         - name: budget_id
           in: path

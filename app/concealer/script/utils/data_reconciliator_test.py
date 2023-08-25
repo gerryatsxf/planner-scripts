@@ -17,6 +17,6 @@ class DataReconciliatorTest(TestCase):
         Do parsing and just compare with previous snaphost.
         Named naive since no logic is being tested other than script-test producing a consistent output as previous times it was run.
         """
-        recon = DataReconciliator(self.testIncoming,self.testStored)
+        recon = DataReconciliator(self.testIncoming, self.testStored)
         result = recon.reconciliate()
         self.assertMatchSnapshot(result, 'DataReconciliator.reconciliate')

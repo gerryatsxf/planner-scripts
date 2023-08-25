@@ -63,7 +63,7 @@ def main(fileContent, config):
   #df = transformFlows(df, config["fileAccountType"])
   df = assignSerial(df, config["fileAccountType"])
   #df = renameColumns(df, config["fileAccountType"])
-  #df = cleanDescription(df)
+  #df = clean_description(df)
   df = dropColumns(df,config["fileAccountType"])
   df = filterByTimeInterval(df,config["sinceDate"],config["untilDate"])
   return df.to_dict('records')

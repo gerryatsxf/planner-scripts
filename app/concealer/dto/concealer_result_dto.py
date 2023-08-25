@@ -4,10 +4,10 @@ from app.concealer.dto.ynab_budget import ynabBudget
 from app.concealer.dto.ynab_account import ynabAccount
 
 concealerResultDto = Model(
-    'concealerResultDto', 
+    'concealerResultDto',
     {
         'concealed': fields.Nested(Model('concealedRecordsDto', concealedRecordsDto)),
-        'budget':fields.Nested(Model('ynabBudget', ynabBudget)),
-        'account':fields.Nested(Model('ynabAccount', ynabAccount)),
+        'budget': fields.Nested(Model('ynabBudget', ynabBudget)),
+        'account': fields.Nested(Model('ynabAccount', ynabAccount)),
     }
 )

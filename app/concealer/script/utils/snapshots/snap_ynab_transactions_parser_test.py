@@ -7,7 +7,7 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots['YnabTransactionsParserTest::test_naive_parsing_compliance YnabTransactionsParser.getTransactions'] = [
+snapshots['YnabTransactionsParserTest::test_naive_parsing_compliance YnabTransactionsParser.get_transactions'] = [
     {
         'dateExecuted': '2022-01-01',
         'description': 'PAYPAL RAPI',

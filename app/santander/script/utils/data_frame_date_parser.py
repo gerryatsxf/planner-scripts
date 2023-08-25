@@ -7,7 +7,6 @@ class DataFrameDateParser(object):
 
     def __init__(self, fileType) -> None:
         self.fileType = fileType
-        locale.setlocale(locale.LC_ALL,'es_ES.UTF-8')
 
     def setDataFrame(self, rawDf):
         self.df = rawDf
@@ -22,7 +21,24 @@ class DataFrameDateParser(object):
 
     def parseDates(self):
         df = self.df
-        df['dateExecuted'] = pd.to_datetime(df["FECHA"], format='%d/%b/%Y').dt.strftime('%Y-%m-%d')
+        df.FECHA = df.FECHA.str.replace('Ene', '01')
+        df.FECHA = df.FECHA.str.replace('Feb', '02')
+        df.FECHA = df.FECHA.str.replace('Mar', '03')
+        df.FECHA = df.FECHA.str.replace('Abr', '04')
+        df.FECHA = df.FECHA.str.replace('May', '05')
+        df.FECHA = df.FECHA.str.replace('Jun', '06')
+        df.FECHA = df.FECHA.str.replace('Jul', '07')
+        df.FECHA = df.FECHA.str.replace('Ago', '08')
+        df.FECHA = df.FECHA.str.replace('Sep', '09')
+        df.FECHA = df.FECHA.str.replace('Oct', '10')
+        df.FECHA = df.FECHA.str.replace('Nov', '11')
+        df.FECHA = df.FECHA.str.replace('Dic', '12')
+        #for i in df.FECHA:
+        #    print(i)
+        #print(df.FECHA)
+
+        df['dateExecuted'] = pd.to_datetime(df["FECHA"], format='%d/%m/%Y', dayfirst=True).dt.strftime('%Y-%m-%d')
+        #df['dateExecuted'] = pd.to_datetime(df["FECHA"], format='mixed', dayfirst=True).dt.strftime('%Y-%m-%d')
         df = df.drop(columns='FECHA')
         self.df = df
 

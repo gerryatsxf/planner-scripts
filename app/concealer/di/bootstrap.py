@@ -8,9 +8,7 @@ import os
 from dotenv import load_dotenv
 
 
-
 def bootstrap_di() -> None:
-    
     SCRIPT_API_ENV = os.getenv('SCRIPT_API_ENV')
 
     match SCRIPT_API_ENV:
@@ -29,12 +27,12 @@ def bootstrap_di() -> None:
         case 'dev':
             di['concealer_script'] = main
             di['concealer_service'] = ConcealerService()
-            di['ynab_client'] = YnabClient(YNAB_URL,YNAB_API_TOKEN)
+            di['ynab_client'] = YnabClient(YNAB_URL, YNAB_API_TOKEN)
             di['account_transactions_fetcher'] = YnabAccountTransactionsFetcher
         case 'prod':
             di['concealer_script'] = main
             di['concealer_service'] = ConcealerService()
-            di['ynab_client'] = YnabClient(YNAB_URL,YNAB_API_TOKEN)
+            di['ynab_client'] = YnabClient(YNAB_URL, YNAB_API_TOKEN)
             di['account_transactions_fetcher'] = YnabAccountTransactionsFetcher
         case 'test':
             di['santander_script'] = test_env_not_implemented
@@ -42,5 +40,4 @@ def bootstrap_di() -> None:
             di['ynab_client'] = test_env_not_implemented
             di['account_transactions_fetcher'] = test_env_not_implemented
         case _:
-            raise Exception("ENVIRONTMENT MISSING OR NOT CORRECTLY DEFINED")
-
+            raise Exception("ENVIRONMENT MISSING OR NOT CORRECTLY DEFINED")

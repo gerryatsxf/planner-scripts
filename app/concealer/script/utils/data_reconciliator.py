@@ -1,8 +1,14 @@
 import pandas as pd
+
+
+def print_debug(item):
+    if item['dateExecuted'] == '2023-07-23':
+        print(item)
+
 class DataReconciliator(object):
 
     def __init__(self, incoming, stored):
-        
+
         new = pd.DataFrame(incoming)
         new['id'] = None
         new['source'] = 'incoming'
@@ -14,72 +20,79 @@ class DataReconciliator(object):
 
     def reconciliate(self):
 
-        # Classify by repeated and non repeated items
-        searchResult = self.findNonRepeatedItems()
-        nonRepeated = searchResult['nonRepeated']
-        allIncoming = searchResult['allIncoming']
+        # Classify by repeated and non-repeated items
+        search_result = self.find_non_repeated_items()
+
+        non_repeated = search_result['nonRepeated']
+        all_incoming = search_result['allIncoming']
 
         result = {
-            'create':[],
-            'update':[],
-            'delete':[]
+            'create': [],
+            'update': [],
+            'delete': []
         }
 
-        if len(nonRepeated) > 0 and not allIncoming:
-            
-            # We only care about non repeated since repeated items are just full matches between incoming items and stored items
-            nonRepeated = pd.DataFrame(nonRepeated)
-            
-            # Rows to be updated are the duplicated non repeated ones; duplicated since there was a change in serialIndex due to list order changes
-            reduced = nonRepeated.loc[(nonRepeated['serialKey'].duplicated(keep=False))].sort_values(['source','serialKey','serialIndex'])
+        if len(non_repeated) > 0 and not all_incoming:
+
+            # We only care about non-repeated since repeated items are just full matches between incoming items and
+            # stored items
+            non_repeated = pd.DataFrame(non_repeated)
+
+            # Rows to be updated are the duplicated non-repeated ones; duplicated since there was a change in
+            # serialIndex due to list order changes
+            reduced = non_repeated.loc[(non_repeated['serialKey'].duplicated(keep=False))].sort_values(
+                ['source', 'serialKey', 'serialIndex'])
             reduced['auxIndex'] = reduced['serialIndex'] + '___' + reduced['serialKey']
             reduced = reduced.loc[~(reduced['auxIndex'].duplicated(keep=False))]
-
             incoming = reduced.loc[reduced['source'] == 'incoming'].to_dict('records')
             stored = reduced.loc[reduced['source'] == 'stored'].to_dict('records')
 
-            toUpdate = []
+            to_update = []
+
+            #print(incoming)
 
             while True:
                 if len(incoming) == 0 or len(stored) == 0:
-                    break 
+                    break
                 stored[0]['serialIndex___OLD'] = stored[0]['serialIndex']
                 stored[0]['serialIndex'] = incoming[0]['serialIndex']
-                toUpdate.append(stored[0])
+                to_update.append(stored[0])
                 del incoming[0]
                 del stored[0]
 
-            foundDeleteItems = stored
-            foundCreateItems = incoming
+            found_delete_items = stored
+            found_create_items = incoming
 
-            result['update'] = toUpdate
+            result['update'] = to_update
 
             # Get rid of duplicated rows that have been handled already
-            nonRepeated  = nonRepeated.loc[~nonRepeated['serialKey'].duplicated(keep=False)]
+            non_repeated = non_repeated.loc[~non_repeated['serialKey'].duplicated(keep=False)]
 
-            # Unique rows with source from 'incoming' are new transactions to be created since they weren't found in the stored transactions
-            toCreate = nonRepeated.loc[nonRepeated.source == 'incoming'].drop(columns='source')
-            result['create'] = toCreate.to_dict('records')
-            result['create'] = result['create'] + foundCreateItems
+            # Unique rows with source from 'incoming' are new transactions to be created since they weren't found in
+            # the stored transactions
+            to_create = non_repeated.loc[non_repeated.source == 'incoming'].drop(columns='source')
+            result['create'] = to_create.to_dict('records')
+            result['create'] = result['create'] + found_create_items
 
-            # Unique rows with source from 'stored' are transactions to be bricked since they are no longer in the incoming records
-            toDelete = nonRepeated.loc[nonRepeated.source == 'stored'].drop(columns='source')
-            result['delete'] = toDelete.to_dict('records')
-            result['delete'] = result['delete'] + foundDeleteItems
+            # Unique rows with source from 'stored' are transactions to be bricked since they are no longer in the
+            # incoming records
+            to_delete = non_repeated.loc[non_repeated.source == 'stored'].drop(columns='source')
+            result['delete'] = to_delete.to_dict('records')
+            result['delete'] = result['delete'] + found_delete_items
 
-        elif len(nonRepeated) > 0 and allIncoming:
-            result['create'] = nonRepeated
+        elif len(non_repeated) > 0 and all_incoming:
+            result['create'] = non_repeated
 
         return result
 
-    def findNonRepeatedItems(self):
+    def find_non_repeated_items(self):
 
         if len(self.incomingItems) == 0:
             raise ValueError("AN EMPTY LIST OF INCOMING ITEMS WAS FETCHED")
 
         repeated = []
-        nonRepeated = []
-        allItemsAreIncoming = False
+        non_repeated = []
+        all_items_are_incoming = False
 
         if len(self.storedItems) > 0:
 
@@ -89,38 +102,40 @@ class DataReconciliator(object):
 
             while idx < len(items):
 
-                localIdx = idx + 1
-                itsRepeated = False
+                local_idx = idx + 1
+                its_repeated = False
 
-                # do not run while loop if we cannot assert that items[idx+1] (which is equivalent to items[localIdx]) exists
-                if localIdx <= len(items)-1:
-                    while items[idx]['serialKey'] == items[localIdx]['serialKey'] and items[idx]['serialIndex'] == items[localIdx]['serialIndex']:
-                        localIdx = localIdx + 1
-                        itsRepeated = True
-                        if localIdx > len(items)-1:
+                # do not run while loop if we cannot assert that items[idx+1] (which is equivalent to items[
+                # localIdx]) exists
+                if local_idx <= len(items) - 1:
+                    while items[idx]['serialKey'] == items[local_idx]['serialKey'] and items[idx]['serialIndex'] == \
+                            items[local_idx]['serialIndex']:
+                        local_idx = local_idx + 1
+                        its_repeated = True
+                        if local_idx > len(items) - 1:
                             break
 
-                    if itsRepeated:
+                    if its_repeated:
                         repeated.append(items[idx])
-                        idx = localIdx
-                        itsRepeated = False
+                        idx = local_idx
                     else:
-                        nonRepeated.append(items[idx])
+                        non_repeated.append(items[idx])
                         idx = idx + 1
-                # else, if we get to the point where localIdx equals list length, that means we are done with loop but still have one non-repeated item to be considering, the last item in the list
-                elif localIdx == len(items):
-                    nonRepeated.append(items[idx])
+                # else, if we get to the point where localIdx equals list length, that means we are done with loop
+                # but still have one non-repeated item to be considering, the last item in the list
+                elif local_idx == len(items):
+                    non_repeated.append(items[idx])
                     break
                 # else, if localIdx it's just plain bigger than items list length, that means we are done
-                elif localIdx > len(items):
-                    break 
-                
+                elif local_idx > len(items):
+                    break
+
         else:
-            nonRepeated = self.incomingItems
-            allItemsAreIncoming = True
+            non_repeated = self.incomingItems
+            all_items_are_incoming = True
 
         return {
             'repeated': repeated,
-            'nonRepeated': nonRepeated,
-            'allIncoming': allItemsAreIncoming
+            'nonRepeated': non_repeated,
+            'allIncoming': all_items_are_incoming
         }

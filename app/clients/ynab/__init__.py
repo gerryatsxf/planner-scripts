@@ -66,7 +66,9 @@ class TransactionsApi(object):
         return get_transaction_by_id.sync(budget_id, transaction_id, client = self.client).to_dict()
 
     def get_transactions_by_account(self, budget_id: str, account_id: str, since_date = None):
-        return get_transactions_by_account.sync(budget_id, account_id, client = self.client, since_date = since_date).to_dict()
+        from datetime import datetime
+        date_obj = datetime.strptime(since_date, "%Y-%m-%d").date()
+        return get_transactions_by_account.sync(budget_id, account_id, client = self.client, since_date = date_obj).to_dict()
 
     def get_transactions_by_category(self, budget_id: str, category_id: str, since_date = None):
         return get_transactions_by_category.sync(budget_id, category_id, client = self.client, since_date = since_date).to_dict()

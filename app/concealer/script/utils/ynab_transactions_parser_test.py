@@ -15,10 +15,10 @@ class YnabTransactionsParserTest(TestCase):
         Do parsing and just compare with previous snaphost.
         Named naive since no logic is being tested other than script-test producing a consistent output as previous times it was run.
         """
-        result = YnabTransactionsParser(self.testTransactions).getTransactions()
-        self.assertMatchSnapshot(result, 'YnabTransactionsParser.getTransactions')
+        result = YnabTransactionsParser(self.testTransactions).get_transactions()
+        self.assertMatchSnapshot(result, 'YnabTransactionsParser.get_transactions')
     
-    def test_serial_index_and_key_was_correclty_set(self):
+    def test_serial_index_and_key_was_correctly_set(self):
         parser = YnabTransactionsParser(self.testTransactions)
-        df = parser.getDataFrame()
+        df = parser.get_dataframe()
         self.assertTrue('serialIndex' in df.columns and 'serialKey' in df.columns)
