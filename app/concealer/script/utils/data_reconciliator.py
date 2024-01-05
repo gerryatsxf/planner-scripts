@@ -20,6 +20,8 @@ class DataReconciliator(object):
 
     def reconciliate(self):
 
+        self.filter_items()
+
         # Classify by repeated and non-repeated items
         search_result = self.find_non_repeated_items()
 
@@ -84,6 +86,36 @@ class DataReconciliator(object):
             result['create'] = non_repeated
 
         return result
+    
+    # TODO: write tests
+    def get_reconciliation_interval(self):
+        max_date = '1900-01-01'
+        min_date = '2100-12-31'
+        for el in self.incomingItems:
+            if el['dateExecuted'] < min_date:
+                min_date = el['dateExecuted']
+            if el['dateExecuted'] > max_date:
+                max_date = el['dateExecuted']
+        return {
+            'max_date': max_date,
+            'min_date': min_date
+        }
+
+    # TODO: write tests
+    def filter_items(self):
+        interval = self.get_reconciliation_interval()
+        
+        filtered = []
+        for s in self.incomingItems:
+            if s['dateExecuted'] >= interval['min_date'] and s['dateExecuted'] <= interval['max_date']:
+                filtered.append(s)
+        self.incomingItems = filtered
+
+        filtered = []
+        for s in self.storedItems:
+            if s['dateExecuted'] >= interval['min_date'] and s['dateExecuted'] <= interval['max_date']:
+                filtered.append(s)
+        self.storedItems = filtered
 
     def find_non_repeated_items(self):
 

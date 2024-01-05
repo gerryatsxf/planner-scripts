@@ -27,9 +27,9 @@ def main(
     account_name = params['accountName']
     ynab_token = params['ynabToken']
     serialized_records = params['serializedRecords']
+    since_date = params['sinceDate']
     fetcher = account_transactions_fetcher(budget_name, account_name, ynab_token)
 
-    since_date = '2023-08-24'
     for s in serialized_records:
         if since_date > s['dateExecuted']:
             since_date = s['dateExecuted']

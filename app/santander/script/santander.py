@@ -8,7 +8,6 @@ def filterByDateInterval(df,sinceDate,untilDate,column='dateExecuted'):
   return df.loc[(df[column] >= sinceDate) & (df[column] <= untilDate)]
 
 def main(params):
-    print(params)
     fileParser = FileContentParser(params['filePath'],params['fileType'])
     rowParser = DataFrameRowParser(params['fileType'])
     dateParser = DataFrameDateParser(params['fileType'])

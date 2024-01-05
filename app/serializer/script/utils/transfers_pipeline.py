@@ -14,7 +14,6 @@ class TransferPipeline(object):
         items = self.paymentFromCashPipe(items)
         items = self.transferDebitToSightPipe(items)
         items = self.transferSightToDebitPipe(items)
-        print(items)
         return items 
 
     def cashDepositPipe(self, items):
